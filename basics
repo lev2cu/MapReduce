@@ -1,0 +1,6 @@
+
+Context class	com w/ hadoop framework
+
+driver class | main: conf & job	
+ job.set: JarByClass MapperClass ReducerClass OutputKeyClass OutputValueClass 
+
