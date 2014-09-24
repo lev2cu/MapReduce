@@ -2,5 +2,26 @@
 Context class	com w/ hadoop framework
 
 driver class | main: conf & job	
- job.set: JarByClass MapperClass ReducerClass OutputKeyClass OutputValueClass 
+ job.set: JarByClass MapperClass ReducerClass OutputKeyClass(Text) OutputValueClass(IntWritable) 
+
+combiner - reduce on mapper for o/p destined for each reducer
+job.setCombinerClass(WordCountReducer.class);
+
+practitioner - to give a single reducer all values associted with a given key
+
+job config
+
+MR unit
+
+
+join map/reduce side
+
+Input /output format
+
+
+
+design pattern:
+1. sort 
+2. search
+3. join
 
