@@ -5,12 +5,16 @@ su -c 'yum provides javac'
 # create java class
 mkdir wordcount_classes
 javac -classpath /usr/lib/hadoop/hadoop-core-1.2.0.1.3.3.0-58.jar -d wordcount_classes WordCount.java
+
 # create jar
 jar -cvf /root/workspace/WordCount.jar -C wordcount_classes/ 
+
 # delete previous output results in out folder
 hadoop fs -rmr /user/root/out
+
 # run jar in hadoop
 hadoop jar /root/workspace/WordCount.jar org.myorg.WordCount /user/root/test.txt /user/root/out
+
 # visualize results
 hadoop dfs -cat /user/root/out/part-00000
  
