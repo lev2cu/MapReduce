@@ -1,0 +1,19 @@
+how to run a basic MapReduce program in java:
+
+[step0. write java programs for job, mapper and reducer]
+
+[step1. compile classes by mkdir classes inside the same java codes' folder]
+ javac -classpath /usr/lib/hadoop/hadoop-common-2.5.0-cdh5.2.0.jar:/usr/lib/hadoop/client/hadoop-mapreduce-client-core-2.5.0-cdh5.2.0.jar -d classes MaxTemperature*.java
+
+[step2. make a jar file]
+[cloudera@quickstart classes]$ jar -cvf MaxTemperature.jar *
+ $mv *.jar ..
+
+[step3. upload local file to HDFS by mkdir input]
+hadoop fs -put hadoop-book/input/ncdc/sample.txt input
+
+[step4. Run MR program]
+hadoop jar MaxTemperature.jar MaxTemperature input output
+
+[step5. view the results]
+hadoop fs -cat output/part-00000
